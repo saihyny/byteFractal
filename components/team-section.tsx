@@ -12,29 +12,30 @@ export default function TeamSection() {
     //   image: "/placeholder.svg?height=300&width=300&text=Alex+Chen",
     //   description: "Full-stack architect with 3+ years building scalable applications",
     // },
-    {
-      name: "gipson Paul",
-      role: "Frontend Developer & product designer",
-      techStack: ["React", "TypeScript", "Next.js", "GSAP"],
-      image: "/placeholder.svg?height=300&width=300&text=Sarah+Johnson",
-      description: "Creative frontend developer crafting beautiful, interactive user experiences",
-    },
-    {
-      name: "charan",
-      role: "Backend Engineer",
-      techStack: ["Node.js", "PostgreSQL", "Docker", "Kubernetes"],
-      image: "/placeholder.svg?height=300&width=300&text=Mike+Rodriguez",
-      description: "Infrastructure expert building robust, scalable backend systems",
-    },
-    {
-      name: "chaitanya",
+      {
+      name: "Stains Gipson Paul",
       role: "AI/ML Engineer",
       techStack: ["Python", "TensorFlow", "PyTorch", "FastAPI"],
       image: "/placeholder.svg?height=300&width=300&text=Emily+Davis",
       description: "Machine learning specialist developing intelligent solutions",
     },
     {
-      name: "rebcca",
+      name: "Chaitanya",
+      role: "Frontend Developer & product designer",
+      techStack: ["React", "TypeScript", "Next.js", "GSAP"],
+      image: "/placeholder.svg?height=300&width=300&text=Sarah+Johnson",
+      description: "Creative frontend developer crafting beautiful, interactive user experiences",
+    },
+    {
+      name: "Charan",
+      role: "Backend Engineer",
+      techStack: ["Node.js", "PostgreSQL", "Docker", "Kubernetes"],
+      image: "/placeholder.svg?height=300&width=300&text=Mike+Rodriguez",
+      description: "Infrastructure expert building robust, scalable backend systems",
+    },
+  
+    {
+      name: "Rebecca",
       role: "Marketing Strategist",
       techStack: ["SEO", "Content Marketing", "Social Media", "Analytics"],
       image: "/placeholder.svg?height=300&width=300&text=John+Smith",
