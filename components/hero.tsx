@@ -1,9 +1,12 @@
 "use client"
 
-import { useEffect, useRef, memo, Suspense } from "react"
-import dynamic from "next/dynamic"
+import { memo, useEffect, useState, useRef } from "react"
 import Image from "next/image"
+import { Suspense } from "react"
+import dynamic from "next/dynamic"
 import { useIsMobile } from "@/components/ui/use-mobile"
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
 
 const Spline = dynamic(() => import("@splinetool/react-spline"), {
   suspense: true,
@@ -11,40 +14,44 @@ const Spline = dynamic(() => import("@splinetool/react-spline"), {
 
 function HeroComponent() {
   const isMobile = useIsMobile()
-  const splineRef = useRef<any>(null)
-
-  const onLoad = (spline: any) => {
-    splineRef.current = spline
-  }
+  const [showImage, setShowImage] = useState(false)
+  const heroRef = useRef<HTMLDivElement>(null)
+  const splineRef = useRef<HTMLDivElement>(null)
+  const imageRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    // No-op
-  }, [])
+    if (isMobile || !heroRef.current) return
+
+    gsap.registerPlugin(ScrollTrigger)
+
+    ScrollTrigger.create({
+      trigger: heroRef.current,
+      start: "80% top",
+      end: "20% top",
+      scrub: true,
+      onEnter: () => setShowImage(true),
+      onLeaveBack: () => setShowImage(false),
+      onUpdate: (self) => {
+        if (splineRef.current) {
+          gsap.to(splineRef.current, { autoAlpha: 1 - self.progress, duration: 0 })
+        }
+        if (imageRef.current) {
+          gsap.to(imageRef.current, { autoAlpha: self.progress, duration: 0 })
+        }
+      },
+    })
+  }, [isMobile])
 
   return (
-    <div className="absolute inset-0 w-full h-full">
-      {isMobile ? (
-        <Image
-          src="/creative-agency-portfolio.png"
-          alt="ByteFractal Hero Image"
-          layout="fill"
-          objectFit="cover"
-          priority
-        />
-      ) : (
-        <Suspense fallback={<div className="w-full h-full bg-black" />}>
-          <Spline
-            scene="https://prod.spline.design/a8sujCRKUTyXmacT/scene.splinecode"
-            onLoad={onLoad}
-            style={{
-              width: "100%",
-              height: "100%",
-              background: "transparent",
-              display: "block",
-            }}
-          />
-        </Suspense>
-      )}
+    <div ref={heroRef} className="relative w-full h-screen overflow-hidden hero-sticky">
+        <>
+          <div ref={splineRef} className="absolute inset-0 w-full h-full">
+            <Suspense fallback={<div className="w-full h-full bg-black" />}>
+              {!showImage && <Spline scene="https://prod.spline.design/a8sujCRKUTyXmacT/scene.splinecode" />}
+            </Suspense>
+          </div>
+        </>
+     
     </div>
   )
 }

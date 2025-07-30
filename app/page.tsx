@@ -9,7 +9,7 @@ import Spline from "@splinetool/react-spline"
 
 const AboutSection = dynamic(() => import("@/components/about-section"))
 const ServicesSection = dynamic(() => import("@/components/services-section"))
-const PackagesSection = dynamic(() => import("@/components/packages-section"))
+import PackagesSection from "@/components/packages-section"
 const TeamSection = dynamic(() => import("@/components/team-section"))
 const ProjectsSection = dynamic(() => import("@/components/projects-section"))
 const ContactSection = dynamic(() => import("@/components/contact-section"))
