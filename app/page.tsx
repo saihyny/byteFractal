@@ -5,7 +5,6 @@ import ScrollProvider from "@/components/scroll-provider"
 import Navigation from "@/components/navigation"
 import Hero from "@/components/hero"
 import dynamic from "next/dynamic"
-import Spline from "@splinetool/react-spline"
 
 const AboutSection = dynamic(() => import("@/components/about-section"))
 const ServicesSection = dynamic(() => import("@/components/services-section"))

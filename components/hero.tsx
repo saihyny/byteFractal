@@ -7,10 +7,7 @@ import dynamic from "next/dynamic"
 import { useIsMobile } from "@/components/ui/use-mobile"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-
-const Spline = dynamic(() => import("@splinetool/react-spline"), {
-  suspense: true,
-})
+import Spline from "@splinetool/react-spline"
 
 function HeroComponent() {
   const isMobile = useIsMobile()
