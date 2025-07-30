@@ -5,33 +5,40 @@ import Image from "next/image"
 
 export default function TeamSection() {
   const teamMembers = [
+    // {
+    //   name: "samuel",
+    //   role: "Founder & Lead Developer",
+    //   techStack: ["React", "Node.js", "Python", "AWS"],
+    //   image: "/placeholder.svg?height=300&width=300&text=Alex+Chen",
+    //   description: "Full-stack architect with 3+ years building scalable applications",
+    // },
     {
-      name: "Alex Chen",
-      role: "Founder & Lead Developer",
-      techStack: ["React", "Node.js", "Python", "AWS"],
-      image: "/placeholder.svg?height=300&width=300&text=Alex+Chen",
-      description: "Full-stack architect with 8+ years building scalable applications",
-    },
-    {
-      name: "Sarah Johnson",
-      role: "Senior Frontend Developer",
+      name: "gipson Paul",
+      role: "Frontend Developer & product designer",
       techStack: ["React", "TypeScript", "Next.js", "GSAP"],
       image: "/placeholder.svg?height=300&width=300&text=Sarah+Johnson",
-      description: "UI/UX specialist creating beautiful, performant user experiences",
+      description: "Creative frontend developer crafting beautiful, interactive user experiences",
     },
     {
-      name: "Mike Rodriguez",
+      name: "charan",
       role: "Backend Engineer",
       techStack: ["Node.js", "PostgreSQL", "Docker", "Kubernetes"],
       image: "/placeholder.svg?height=300&width=300&text=Mike+Rodriguez",
       description: "Infrastructure expert building robust, scalable backend systems",
     },
     {
-      name: "Emily Davis",
+      name: "chaitanya",
       role: "AI/ML Engineer",
       techStack: ["Python", "TensorFlow", "PyTorch", "FastAPI"],
       image: "/placeholder.svg?height=300&width=300&text=Emily+Davis",
       description: "Machine learning specialist developing intelligent solutions",
+    },
+    {
+      name: "rebcca",
+      role: "Marketing Strategist",
+      techStack: ["SEO", "Content Marketing", "Social Media", "Analytics"],
+      image: "/placeholder.svg?height=300&width=300&text=John+Smith",
+      description: "Marketing strategist driving brand awareness and engagement",
     },
   ]
 
