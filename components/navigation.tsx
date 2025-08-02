@@ -43,22 +43,38 @@ export default function Navigation() {
         } ${isMobileMenuOpen ? "bg-transparent" : ""}`}
       >
         <div className="max-w-7xl mx-auto px-6 py-4">
-          <div className="flex items-center justify-between">
-            <Link href="/" className="text-2xl font-bold" style={{ color: "#00b8b0" }}>
-              ByteFractal
+            <div className="flex items-center justify-between">
+            <Link
+              href="/"
+              className="text-2xl font-bold"
+              style={{ fontFamily: "'Sarpanch', sans-serif" }}
+            >
+              <span style={{ color: "#867ADF" }}>Byte</span>
+              <span
+              style={{
+                color: isScrolled ? "#FFFFFF" : "#000000",
+                transition: "color 0.3s",
+              }}
+              >
+              Fractal
+              </span>
             </Link>
+            <link
+              href="https://fonts.googleapis.com/css?family=Sarpanch:700&display=swap"
+              rel="stylesheet"
+            />
 
             <div className="hidden md:flex items-center space-x-8 font-medium text-sm tracking-wide uppercase">
               {navItems.map((item) => (
-                <button
-                  key={item.name}
-                  onClick={() => scrollToSection(item.targetId!)}
-                  className={`transition-colors duration-200 hover:underline ${
-                  isScrolled ? "text-white" : "text-black"
-                  }`}
-                >
-                  {item.name}
-                </button>
+              <button
+                key={item.name}
+                onClick={() => scrollToSection(item.targetId!)}
+                className={`transition-colors duration-200 hover:underline ${
+                isScrolled ? "text-white" : "text-black"
+                }`}
+              >
+                {item.name}
+              </button>
               ))}
             </div>
 
@@ -67,24 +83,24 @@ export default function Navigation() {
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               <div className="space-y-2">
-                <span
-                  className={`block w-6 h-0.5 bg-black transition-transform duration-300 ${
-                    isMobileMenuOpen ? "rotate-45 translate-y-2.5" : ""
-                  }`}
-                ></span>
-                <span
-                  className={`block w-6 h-0.5 bg-black transition-opacity duration-300 ${
-                    isMobileMenuOpen ? "opacity-0" : ""
-                  }`}
-                ></span>
-                <span
-                  className={`block w-6 h-0.5 bg-black transition-transform duration-300 ${
-                    isMobileMenuOpen ? "-rotate-45 -translate-y-2.5" : ""
-                  }`}
-                ></span>
+              <span
+                className={`block w-6 h-0.5 bg-black transition-transform duration-300 ${
+                isMobileMenuOpen ? "rotate-45 translate-y-2.5" : ""
+                }`}
+              ></span>
+              <span
+                className={`block w-6 h-0.5 bg-black transition-opacity duration-300 ${
+                isMobileMenuOpen ? "opacity-0" : ""
+                }`}
+              ></span>
+              <span
+                className={`block w-6 h-0.5 bg-black transition-transform duration-300 ${
+                isMobileMenuOpen ? "-rotate-45 -translate-y-2.5" : ""
+                }`}
+              ></span>
               </div>
             </button>
-          </div>
+            </div>
         </div>
       </nav>
 

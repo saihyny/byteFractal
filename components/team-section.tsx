@@ -5,13 +5,13 @@ import Image from "next/image"
 
 export default function TeamSection() {
   const teamMembers = [
-    // {
-    //   name: "samuel",
-    //   role: "Founder & Lead Developer",
-    //   techStack: ["React", "Node.js", "Python", "AWS"],
-    //   image: "/placeholder.svg?height=300&width=300&text=Alex+Chen",
-    //   description: "Full-stack architect with 3+ years building scalable applications",
-    // },
+    {
+      name: "samuel",
+      role: "Founder & Lead Developer",
+      techStack: ["React", "Node.js", "Python", "Next.js"],
+      image: "/placeholder.svg?height=300&width=300&text=Alex+Chen",
+      description: "Full-stack architect with 3+ years building scalable applications",
+    },
       {
       name: "Stains Gipson Paul",
       role: "AI/ML Engineer",
@@ -41,6 +41,13 @@ export default function TeamSection() {
       image: "/placeholder.svg?height=300&width=300&text=John+Smith",
       description: "Marketing strategist driving brand awareness and engagement",
     },
+    {
+      name: "augustine paul",
+      role: "Data Scientist",
+      techStack: ["Python", "R", "SQL", "Tableau"],
+      image: "/placeholder.svg?height=300&width=300&text=Augustine+Paul",
+      description: "Data scientist specializing in predictive modeling and data visualization",
+    }
   ]
 
   return (
@@ -55,7 +62,7 @@ export default function TeamSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {teamMembers.map((member, index) => (
             <Card
               key={index}

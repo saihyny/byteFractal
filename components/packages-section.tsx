@@ -213,7 +213,7 @@ export default function PackagesSection() {
           <div className="relative">
             <input
               type="text"
-              placeholder="Enter 8-character promo code"
+              placeholder="Enter promo code"
               value={promoCode}
               onChange={e => setPromoCode(e.target.value)}
               maxLength={8}
