@@ -52,7 +52,7 @@ export default function Navigation() {
               <span style={{ color: "#867ADF" }}>Byte</span>
               <span
               style={{
-                color: isScrolled ? "#FFFFFF" : "#000000",
+                color: isScrolled || isMobileMenuOpen ? "#FFFFFF" : "#FFFFFF",
                 transition: "color 0.3s",
               }}
               >
@@ -79,25 +79,29 @@ export default function Navigation() {
             </div>
 
             <button
-              className="md:hidden z-50 text-black"
+              className="md:hidden z-50 text-white"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
-              <div className="space-y-2">
-              <span
-                className={`block w-6 h-0.5 bg-black transition-transform duration-300 ${
-                isMobileMenuOpen ? "rotate-45 translate-y-2.5" : ""
-                }`}
-              ></span>
-              <span
-                className={`block w-6 h-0.5 bg-black transition-opacity duration-300 ${
-                isMobileMenuOpen ? "opacity-0" : ""
-                }`}
-              ></span>
-              <span
-                className={`block w-6 h-0.5 bg-black transition-transform duration-300 ${
-                isMobileMenuOpen ? "-rotate-45 -translate-y-2.5" : ""
-                }`}
-              ></span>
+              <div className="w-6 space-y-2">
+                <span
+                  className={`block h-0.5 bg-white transition-all duration-300 ml-auto ${
+                    isMobileMenuOpen
+                      ? "w-full rotate-45 translate-y-2.5"
+                      : "w-[40%]"
+                  }`}
+                ></span>
+                <span
+                  className={`block h-0.5 bg-white transition-opacity duration-300 ml-auto ${
+                    isMobileMenuOpen ? "opacity-0" : "w-[70%]"
+                  }`}
+                ></span>
+                <span
+                  className={`block h-0.5 bg-white transition-all duration-300 ml-auto ${
+                    isMobileMenuOpen
+                      ? "w-full -rotate-45 -translate-y-2.5"
+                      : "w-full"
+                  }`}
+                ></span>
               </div>
             </button>
             </div>
@@ -106,8 +110,8 @@ export default function Navigation() {
 
       {/* Mobile Menu Overlay */}
       <div
-        className={`fixed inset-0 z-40 bg-[#c9d2e7] transition-transform duration-500 ease-in-out ${
-          isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
+        className={`fixed inset-0 z-40 bg-[#c9d2e7] transition-all duration-300 ease-in-out ${
+          isMobileMenuOpen ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"
         }`}
       >
         <div className="flex flex-col items-center justify-center h-full">
@@ -115,11 +119,12 @@ export default function Navigation() {
             <button
               key={item.name}
               onClick={() => scrollToSection(item.targetId!)}
-              className="text-black text-4xl font-bold my-4 transition-all duration-300 ease-in-out"
+              className="text-black text-4xl font-bold my-4"
               style={{
-                transform: isMobileMenuOpen ? "translateY(0)" : "translateY(20px)",
+                transition: 'all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+                transform: isMobileMenuOpen ? "translateY(0) rotate(0)" : "translateY(30px) rotate(2deg)",
                 opacity: isMobileMenuOpen ? 1 : 0,
-                transitionDelay: `${index * 100}ms`,
+                transitionDelay: `${index * 75}ms`,
               }}
             >
               {item.name}

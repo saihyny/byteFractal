@@ -1,5 +1,4 @@
 "use client"
-
 import { memo, useEffect, useState, useRef } from "react"
 import Image from "next/image"
 import { Suspense } from "react"
@@ -9,6 +8,7 @@ import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import Spline from "@splinetool/react-spline"
 import { LoadingAnimation } from "./ui/loading-animation"
+import ByteFractalHero from "./mobile-hero-section"
 
 function HeroComponent() {
   const isMobile = useIsMobile()
@@ -36,31 +36,32 @@ function HeroComponent() {
   }
 
   return (
-    <div
-      ref={heroRef}
-      className="relative h-screen w-full overflow-hidden hero-sticky"
-    >
-      {isLoading && <LoadingAnimation />}
-      {showImage ? (
-        <div className="absolute inset-0 h-full w-full">
-          <Image
-            src="/hero-image.png"
-            alt="Hero Image"
-            layout="fill"
-            objectFit="cover"
-          />
-        </div>
-      ) : (
-        <div className="absolute inset-0 h-full w-full">
-          <Suspense fallback={null}>
-            <Spline
-              scene="https://prod.spline.design/a8sujCRKUTyXmacT/scene.splinecode"
-              onLoad={handleSplineLoad}
-            />
-          </Suspense>
-        </div>
-      )}
-    </div>
+    // <div
+    //   ref={heroRef}
+    //   className="relative h-screen w-full overflow-hidden hero-sticky"
+    // >
+    //   {isLoading && <LoadingAnimation />}
+    //   {showImage ? (
+    //     <div className="absolute inset-0 h-full w-full">
+    //       <Image
+    //         src="/hero-image.png"
+    //         alt="Hero Image"
+    //         layout="fill"
+    //         objectFit="cover"
+    //       />
+    //     </div>
+    //   ) : (
+    //     <div className="absolute inset-0 h-full w-full">
+    //       <Suspense fallback={null}>
+    //         <Spline
+    //           scene="https://prod.spline.design/a8sujCRKUTyXmacT/scene.splinecode"
+    //           onLoad={handleSplineLoad}
+    //         />
+    //       </Suspense>
+    //     </div>
+    //   )}
+    // </div>
+    <ByteFractalHero />
   )
 }
 
